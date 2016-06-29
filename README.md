@@ -1,7 +1,7 @@
 UPCarouselFlowLayout
 ===============
 
-`UPCarouselFlowLayout` is a flow layout for `UICollectionView`
+`UPCarouselFlowLayout` is a fancy carousel flow layout for `UICollectionView`. It comes with a paginated effect and it shrinks and makes transparent the side items.
 
 ![demo](images/demo.gif)
 
@@ -10,6 +10,15 @@ UPCarouselFlowLayout
 - iOS 8.1+
 
 ## Installation
+
+### CocoaPods
+
+`UPCarouselFlowLayout` is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```
+pod "UPCarouselFlowLayout"
+```
 
 ### Manual
 
