@@ -36,7 +36,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CarouselCollectionViewCellIdentifier" id="ogm-oB-jCJ" customClass="CarouselCollectionViewCell" customModule="UPCarouselFlowLayoutDemo" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CarouselCollectionViewCell" id="ogm-oB-jCJ" customClass="CarouselCollectionViewCell" customModule="UPCarouselFlowLayoutDemo" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="90" width="200" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
