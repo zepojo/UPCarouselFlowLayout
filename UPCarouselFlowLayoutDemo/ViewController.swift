@@ -9,12 +9,6 @@
 import UIKit
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
-    @available(iOS 6.0, *)
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        //NOT IMPLEMENTED
-        return UICollectionViewCell()
-    }
-
 
     @IBOutlet weak var infoLabel: UILabel!
     @IBOutlet weak var detailLabel: UILabel!
@@ -88,7 +82,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // MARK: - Card Collection Delegate & DataSource
     
-    func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
@@ -96,10 +90,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         return items.count
     }
     
-    func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CarouselCollectionViewCell.identifier, for: indexPath as IndexPath) as! CarouselCollectionViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CarouselCollectionViewCellIdentifier", for: indexPath) as! CarouselCollectionViewCell
+        
         let character = items[indexPath.row]
         cell.image.image = UIImage(named: character.imageName)
+        
         return cell
     }
     
