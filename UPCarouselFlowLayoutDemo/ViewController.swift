@@ -70,6 +70,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     
     @objc fileprivate func rotationDidChange() {
+        guard !orientation.isFlat else { return }
         let layout = self.collectionView.collectionViewLayout as! UPCarouselFlowLayout
         let direction: UICollectionViewScrollDirection = UIDeviceOrientationIsPortrait(orientation) ? .horizontal : .vertical
         layout.scrollDirection = direction
