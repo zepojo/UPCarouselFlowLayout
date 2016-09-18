@@ -117,6 +117,7 @@
 					01D3876A1D1C4B9D00CE4E1F = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 5LPW7LLHS8;
+						LastSwiftMigration = 0800;
 					};
 				};
 			};
@@ -278,6 +279,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = UP.UPCarouselFlowLayoutDemo;
 				PRODUCT_NAME = UPCarouselFlowLayoutDemo;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -289,6 +291,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = UP.UPCarouselFlowLayoutDemo;
 				PRODUCT_NAME = UPCarouselFlowLayoutDemo;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

@@ -15,25 +15,25 @@ public enum UPCarouselFlowLayoutSpacingMode {
 }
 
 
-public class UPCarouselFlowLayout: UICollectionViewFlowLayout {
+open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     
-    private struct LayoutState {
+    fileprivate struct LayoutState {
         var size: CGSize
         var direction: UICollectionViewScrollDirection
-        func isEqual(otherState: LayoutState) -> Bool {
-            return CGSizeEqualToSize(self.size, otherState.size) && self.direction == otherState.direction
+        func isEqual(_ otherState: LayoutState) -> Bool {
+            return self.size.equalTo(otherState.size) && self.direction == otherState.direction
         }
     }
     
-    @IBInspectable public var sideItemScale: CGFloat = 0.6
-    @IBInspectable public var sideItemAlpha: CGFloat = 0.6
-    public var spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 40)
+    @IBInspectable open var sideItemScale: CGFloat = 0.6
+    @IBInspectable open var sideItemAlpha: CGFloat = 0.6
+    open var spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 40)
     
-    private var state = LayoutState(size: CGSizeZero, direction: .Horizontal)
+    fileprivate var state = LayoutState(size: CGSize.zero, direction: .horizontal)
     
     
-    override public func prepareLayout() {
-        super.prepareLayout()
+    override open func prepare() {
+        super.prepare()
         
         let currentState = LayoutState(size: self.collectionView!.bounds.size, direction: self.scrollDirection)
         
@@ -44,18 +44,18 @@ public class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         }
     }
     
-    private func setupCollectionView() {
+    fileprivate func setupCollectionView() {
         guard let collectionView = self.collectionView else { return }
         if collectionView.decelerationRate != UIScrollViewDecelerationRateFast {
             collectionView.decelerationRate = UIScrollViewDecelerationRateFast
         }
     }
     
-    private func updateLayout() {
+    fileprivate func updateLayout() {
         guard let collectionView = self.collectionView else { return }
         
         let collectionSize = collectionView.bounds.size
-        let isHorizontal = (self.scrollDirection == .Horizontal)
+        let isHorizontal = (self.scrollDirection == .horizontal)
         
         let yInset = (collectionSize.height - self.itemSize.height) / 2
         let xInset = (collectionSize.width - self.itemSize.width) / 2
@@ -73,20 +73,20 @@ public class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         }
     }
     
-    override public func shouldInvalidateLayoutForBoundsChange(newBounds: CGRect) -> Bool {
+    override open func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
     
-    override public func layoutAttributesForElementsInRect(rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        guard let superAttributes = super.layoutAttributesForElementsInRect(rect),
+    override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+        guard let superAttributes = super.layoutAttributesForElements(in: rect),
             let attributes = NSArray(array: superAttributes, copyItems: true) as? [UICollectionViewLayoutAttributes]
             else { return nil }
         return attributes.map({ self.transformLayoutAttributes($0) })
     }
     
-    private func transformLayoutAttributes(attributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
+    fileprivate func transformLayoutAttributes(_ attributes: UICollectionViewLayoutAttributes) -> UICollectionViewLayoutAttributes {
         guard let collectionView = self.collectionView else { return attributes }
-        let isHorizontal = (self.scrollDirection == .Horizontal)
+        let isHorizontal = (self.scrollDirection == .horizontal)
         
         let collectionCenter = isHorizontal ? collectionView.frame.size.width/2 : collectionView.frame.size.height/2
         let offset = isHorizontal ? collectionView.contentOffset.x : collectionView.contentOffset.y
@@ -104,23 +104,23 @@ public class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         return attributes
     }
     
-    override public func targetContentOffsetForProposedContentOffset(proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        guard let collectionView = collectionView where !collectionView.pagingEnabled,
-            let layoutAttributes = self.layoutAttributesForElementsInRect(collectionView.bounds)
-            else { return super.targetContentOffsetForProposedContentOffset(proposedContentOffset) }
+    override open func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
+        guard let collectionView = collectionView , !collectionView.isPagingEnabled,
+            let layoutAttributes = self.layoutAttributesForElements(in: collectionView.bounds)
+            else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset) }
         
-        let isHorizontal = (self.scrollDirection == .Horizontal)
+        let isHorizontal = (self.scrollDirection == .horizontal)
         
         let midSide = (isHorizontal ? collectionView.bounds.size.width : collectionView.bounds.size.height) / 2
         let proposedContentOffsetCenterOrigin = (isHorizontal ? proposedContentOffset.x : proposedContentOffset.y) + midSide
         
         var targetContentOffset: CGPoint
         if isHorizontal {
-            let closest = layoutAttributes.sort { abs($0.center.x - proposedContentOffsetCenterOrigin) < abs($1.center.x - proposedContentOffsetCenterOrigin) }.first ?? UICollectionViewLayoutAttributes()
+            let closest = layoutAttributes.sorted { abs($0.center.x - proposedContentOffsetCenterOrigin) < abs($1.center.x - proposedContentOffsetCenterOrigin) }.first ?? UICollectionViewLayoutAttributes()
             targetContentOffset = CGPoint(x: floor(closest.center.x - midSide), y: proposedContentOffset.y)
         }
         else {
-            let closest = layoutAttributes.sort { abs($0.center.y - proposedContentOffsetCenterOrigin) < abs($1.center.y - proposedContentOffsetCenterOrigin) }.first ?? UICollectionViewLayoutAttributes()
+            let closest = layoutAttributes.sorted { abs($0.center.y - proposedContentOffsetCenterOrigin) < abs($1.center.y - proposedContentOffsetCenterOrigin) }.first ?? UICollectionViewLayoutAttributes()
             targetContentOffset = CGPoint(x: proposedContentOffset.x, y: floor(closest.center.y - midSide))
         }
         
