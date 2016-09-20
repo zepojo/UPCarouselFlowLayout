@@ -100,6 +100,7 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         let scale = ratio * (1 - self.sideItemScale) + self.sideItemScale
         attributes.alpha = alpha
         attributes.transform3D = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
+        attributes.zIndex = Int(alpha * 10)
         
         return attributes
     }
