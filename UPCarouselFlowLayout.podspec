@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "UPCarouselFlowLayout"
-  s.version          = "1.0.0"
+  s.version          = "1.1.0"
   s.summary          = "A fancy carousel flow layout for UICollectionView."
   s.description      = "UPCarouselFlowLayout is a fancy carousel flow layout for UICollectionView. It comes with a paginated effect and it shrinks and makes transparent the side items."
 
