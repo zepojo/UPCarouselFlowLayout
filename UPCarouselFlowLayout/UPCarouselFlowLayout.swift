@@ -27,7 +27,7 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     
     @IBInspectable open var sideItemScale: CGFloat = 0.6
     @IBInspectable open var sideItemAlpha: CGFloat = 0.6
-    @IBInspectable open var sideItemShift: CGFloat = 70
+    @IBInspectable open var sideItemShift: CGFloat = 0.0
     open var spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 40)
     
     fileprivate var state = LayoutState(size: CGSize.zero, direction: .horizontal)
@@ -99,7 +99,7 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         
         let alpha = ratio * (1 - self.sideItemAlpha) + self.sideItemAlpha
         let scale = ratio * (1 - self.sideItemScale) + self.sideItemScale
-        let shift = ratio * (1 - self.sideItemShift) + self.sideItemShift
+        let shift = (1 - ratio) * self.sideItemShift
         attributes.alpha = alpha
         attributes.transform3D = CATransform3DScale(CATransform3DIdentity, scale, scale, 1)
         attributes.zIndex = Int(alpha * 10)
