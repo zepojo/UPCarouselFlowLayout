@@ -20,6 +20,14 @@ it, simply add the following line to your Podfile:
 pod "UPCarouselFlowLayout"
 ```
 
+### Carthage
+
+Users can simply add to their Cartfile:
+
+```
+github "ink-spot/UPCarouselFlowLayout"
+```
+
 ### Manual
 
 Simply copy the folder `UPCarouselFlowLayout` to your project and import it in XCode.
