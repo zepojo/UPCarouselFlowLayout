@@ -28,6 +28,8 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     @IBInspectable open var sideItemScale: CGFloat = 0.6
     @IBInspectable open var sideItemAlpha: CGFloat = 0.6
     @IBInspectable open var sideItemShift: CGFloat = 0.0
+    open var decelerationRate: CGFloat = UIScrollViewDecelerationRateFast
+    open var canScrollMultiItems: Bool = false
     open var spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 40)
     
     fileprivate var state = LayoutState(size: CGSize.zero, direction: .horizontal)
@@ -47,8 +49,8 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     
     fileprivate func setupCollectionView() {
         guard let collectionView = self.collectionView else { return }
-        if collectionView.decelerationRate != UIScrollViewDecelerationRateFast {
-            collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        if collectionView.decelerationRate != decelerationRate {
+            collectionView.decelerationRate = decelerationRate
         }
     }
     
@@ -114,12 +116,21 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     }
     
     override open func targetContentOffset(forProposedContentOffset proposedContentOffset: CGPoint, withScrollingVelocity velocity: CGPoint) -> CGPoint {
-        guard let collectionView = collectionView , !collectionView.isPagingEnabled,
-            let layoutAttributes = self.layoutAttributesForElements(in: collectionView.bounds)
-            else { return super.targetContentOffset(forProposedContentOffset: proposedContentOffset) }
-        
+        guard let collectionView = collectionView, !collectionView.isPagingEnabled else {
+            return super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
+        }
+
         let isHorizontal = (self.scrollDirection == .horizontal)
-        
+        var targetRect = collectionView.bounds
+
+        if canScrollMultiItems {
+            targetRect.origin = isHorizontal ? CGPoint(x: proposedContentOffset.x, y: 0.0) : CGPoint(x: 0.0, y: proposedContentOffset.y)
+        }
+
+        guard let layoutAttributes = self.layoutAttributesForElements(in: targetRect) else {
+            return super.targetContentOffset(forProposedContentOffset: proposedContentOffset)
+        }
+
         let midSide = (isHorizontal ? collectionView.bounds.size.width : collectionView.bounds.size.height) / 2
         let proposedContentOffsetCenterOrigin = (isHorizontal ? proposedContentOffset.x : proposedContentOffset.y) + midSide
         
