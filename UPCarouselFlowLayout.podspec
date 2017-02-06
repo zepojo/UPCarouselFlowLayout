@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = "UPCarouselFlowLayout"
-  s.version          = "1.1.1"
+  s.version          = "1.1.2"
   s.summary          = "A fancy carousel flow layout for UICollectionView."
   s.description      = "UPCarouselFlowLayout is a fancy carousel flow layout for UICollectionView. It comes with a paginated effect and it shrinks and makes transparent the side items."
 
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   # s.screenshots     = "https://github.com/ink-spot/UPCarouselFlowLayout/raw/master/images/demo.gif"
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Paul Ulric' => 'ink.and.spot@gmail.com' }
-  s.source           = { :git => 'https://github.com/ink-spot/UPCarouselFlowLayout.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/dangthaison91/UPCarouselFlowLayout', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.1'
 
