@@ -14,6 +14,12 @@ public enum UPCarouselFlowLayoutSpacingMode {
     case overlap(visibleOffset: CGFloat)
 }
 
+public enum UPCarouselFlowInitialSpacing {
+    case startFromZero
+    case equalSpace
+    case customSpace(initialX: CGFloat)
+}
+
 
 open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     
@@ -29,6 +35,7 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     @IBInspectable open var sideItemAlpha: CGFloat = 0.6
     @IBInspectable open var sideItemShift: CGFloat = 0.0
     open var spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 40)
+    open var initialSpacing = UPCarouselFlowInitialSpacing.equalSpace
     
     fileprivate var state = LayoutState(size: CGSize.zero, direction: .horizontal)
     
@@ -60,7 +67,15 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         
         let yInset = (collectionSize.height - self.itemSize.height) / 2
         let xInset = (collectionSize.width - self.itemSize.width) / 2
-        self.sectionInset = UIEdgeInsetsMake(yInset, xInset, yInset, xInset)
+        
+        switch initialSpacing {
+        case .startFromZero:
+            self.sectionInset = UIEdgeInsetsMake(yInset, 0, yInset, xInset)
+        case .equalSpace:
+            self.sectionInset = UIEdgeInsetsMake(yInset, xInset, yInset, xInset)
+        case .customSpace(let initialX):
+            self.sectionInset = UIEdgeInsetsMake(yInset, initialX, yInset, xInset)
+        }
         
         let side = isHorizontal ? self.itemSize.width : self.itemSize.height
         let scaledItemOffset =  (side - side*self.sideItemScale) / 2
