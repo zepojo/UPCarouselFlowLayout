@@ -19,7 +19,7 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     
     fileprivate struct LayoutState {
         var size: CGSize
-        var direction: UICollectionViewScrollDirection
+        var direction: UICollectionView.ScrollDirection
         func isEqual(_ otherState: LayoutState) -> Bool {
             return self.size.equalTo(otherState.size) && self.direction == otherState.direction
         }
@@ -35,7 +35,6 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     
     override open func prepare() {
         super.prepare()
-        
         let currentState = LayoutState(size: self.collectionView!.bounds.size, direction: self.scrollDirection)
         
         if !self.state.isEqual(currentState) {
@@ -47,8 +46,8 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     
     fileprivate func setupCollectionView() {
         guard let collectionView = self.collectionView else { return }
-        if collectionView.decelerationRate != UIScrollViewDecelerationRateFast {
-            collectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        if collectionView.decelerationRate != UIScrollView.DecelerationRate.fast {
+            collectionView.decelerationRate = UIScrollView.DecelerationRate.fast
         }
     }
     
@@ -60,7 +59,7 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         
         let yInset = (collectionSize.height - self.itemSize.height) / 2
         let xInset = (collectionSize.width - self.itemSize.width) / 2
-        self.sectionInset = UIEdgeInsetsMake(yInset, xInset, yInset, xInset)
+        self.sectionInset = UIEdgeInsets.init(top: yInset, left: xInset, bottom: yInset, right: xInset)
         
         let side = isHorizontal ? self.itemSize.width : self.itemSize.height
         let scaledItemOffset =  (side - side*self.sideItemScale) / 2
