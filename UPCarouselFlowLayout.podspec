@@ -11,6 +11,7 @@ Pod::Spec.new do |s|
   s.source           = { :git => 'https://github.com/ink-spot/UPCarouselFlowLayout.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.1'
+  s.swift_version	= '4.2'
 
   s.source_files = 'UPCarouselFlowLayout/**/*.{h,swift}'
 
