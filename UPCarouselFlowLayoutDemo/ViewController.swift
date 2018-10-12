@@ -48,7 +48,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         self.currentPage = 0
         
-        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.rotationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ViewController.rotationDidChange), name: UIDevice.orientationDidChangeNotification, object: nil)
     }
     
     fileprivate func setupLayout() {
@@ -72,11 +72,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @objc fileprivate func rotationDidChange() {
         guard !orientation.isFlat else { return }
         let layout = self.collectionView.collectionViewLayout as! UPCarouselFlowLayout
-        let direction: UICollectionViewScrollDirection = UIDeviceOrientationIsPortrait(orientation) ? .horizontal : .vertical
+        let direction: UICollectionView.ScrollDirection = orientation.isPortrait ? .horizontal : .vertical
         layout.scrollDirection = direction
         if currentPage > 0 {
             let indexPath = IndexPath(item: currentPage, section: 0)
-            let scrollPosition: UICollectionViewScrollPosition = UIDeviceOrientationIsPortrait(orientation) ? .centeredHorizontally : .centeredVertically
+            let scrollPosition: UICollectionView.ScrollPosition = orientation.isPortrait ? .centeredHorizontally : .centeredVertically
             self.collectionView.scrollToItem(at: indexPath, at: scrollPosition, animated: false)
         }
     }
