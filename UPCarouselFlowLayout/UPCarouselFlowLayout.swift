@@ -68,16 +68,17 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         let xInset = (collectionSize.width - self.itemSize.width) / 2
 
         
-        switch initialSpacing {
+       switch initialSpacing {
         case .startFromZero:
-            self.sectionInset = UIEdgeInsetsMake(yInset, 0, yInset, xInset)
+            self.sectionInset = UIEdgeInsets(top: yInset, left: 0, bottom: yInset, right: xInset)
         case .equalSpace:
-            self.sectionInset = UIEdgeInsetsMake(yInset, xInset, yInset, xInset)
+            self.sectionInset = UIEdgeInsets(top: yInset, left: xInset, bottom: yInset, right: xInset)
         case .customSpace(let initialX):
-            self.sectionInset = UIEdgeInsetsMake(yInset, initialX, yInset, xInset)
+            self.sectionInset = UIEdgeInsets(top: yInset, left: initialX, bottom: yInset, right: xInset)
         }
 
         self.sectionInset = UIEdgeInsets.init(top: yInset, left: xInset, bottom: yInset, right: xInset)
+
 
         
         let side = isHorizontal ? self.itemSize.width : self.itemSize.height
