@@ -8,12 +8,10 @@
 
 import UIKit
 
-
 public enum UPCarouselFlowLayoutSpacingMode {
     case fixed(spacing: CGFloat)
     case overlap(visibleOffset: CGFloat)
 }
-
 
 open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     
@@ -31,7 +29,6 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
     open var spacingMode = UPCarouselFlowLayoutSpacingMode.fixed(spacing: 40)
     
     fileprivate var state = LayoutState(size: CGSize.zero, direction: .horizontal)
-    
     
     override open func prepare() {
         super.prepare()
@@ -134,5 +131,8 @@ open class UPCarouselFlowLayout: UICollectionViewFlowLayout {
         
         return targetContentOffset
     }
+    
+    override open var flipsHorizontallyInOppositeLayoutDirection: Bool {
+        return true
+    }
 }
-
