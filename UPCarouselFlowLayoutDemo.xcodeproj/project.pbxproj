@@ -16,6 +16,8 @@
 		01D3879D1D229BFC00CE4E1F /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D387931D229BFC00CE4E1F /* GradientView.swift */; };
 		01D387A01D229BFC00CE4E1F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D387961D229BFC00CE4E1F /* ViewController.swift */; };
 		01D387A31D229E4A00CE4E1F /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D387A21D229E4A00CE4E1F /* UPCarouselFlowLayout.swift */; };
+		0835344B235C743400EC8FD9 /* EvaluateRgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835344A235C743400EC8FD9 /* EvaluateRgb.swift */; };
+		0835344C235C743400EC8FD9 /* EvaluateRgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835344A235C743400EC8FD9 /* EvaluateRgb.swift */; };
 		841C95011DDEE57F00B997F5 /* UPCarouselFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 841C94FF1DDEE57F00B997F5 /* UPCarouselFlowLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		841C95041DDEE57F00B997F5 /* UPCarouselFlowLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 841C94FD1DDEE57F00B997F5 /* UPCarouselFlowLayout.framework */; };
 		841C95051DDEE57F00B997F5 /* UPCarouselFlowLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 841C94FD1DDEE57F00B997F5 /* UPCarouselFlowLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -58,6 +60,7 @@
 		01D387941D229BFC00CE4E1F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01D387961D229BFC00CE4E1F /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		01D387A21D229E4A00CE4E1F /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
+		0835344A235C743400EC8FD9 /* EvaluateRgb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvaluateRgb.swift; sourceTree = "<group>"; };
 		841C94F01DDEE4E300B997F5 /* UPCarouselFlowLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UPCarouselFlowLayout.h; sourceTree = "<group>"; };
 		841C94F11DDEE4E300B997F5 /* UPCarouselFlowLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UPCarouselFlowLayout.m; sourceTree = "<group>"; };
 		841C94FD1DDEE57F00B997F5 /* UPCarouselFlowLayout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = UPCarouselFlowLayout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +136,7 @@
 			children = (
 				841C94F01DDEE4E300B997F5 /* UPCarouselFlowLayout.h */,
 				841C94F11DDEE4E300B997F5 /* UPCarouselFlowLayout.m */,
+				0835344A235C743400EC8FD9 /* EvaluateRgb.swift */,
 			);
 			path = UPCarouselFlowLayout;
 			sourceTree = "<group>";
@@ -209,6 +213,7 @@
 				TargetAttributes = {
 					01D3876A1D1C4B9D00CE4E1F = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = VXBN8Z3M62;
 						LastSwiftMigration = 1000;
 					};
 					841C94FC1DDEE57F00B997F5 = {
@@ -223,6 +228,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -265,6 +271,7 @@
 				01D3879C1D229BFC00CE4E1F /* Character.swift in Sources */,
 				01D3879B1D229BFC00CE4E1F /* CarouselCollectionViewCell.swift in Sources */,
 				01D387A31D229E4A00CE4E1F /* UPCarouselFlowLayout.swift in Sources */,
+				0835344B235C743400EC8FD9 /* EvaluateRgb.swift in Sources */,
 				01D3879D1D229BFC00CE4E1F /* GradientView.swift in Sources */,
 				01D387A01D229BFC00CE4E1F /* ViewController.swift in Sources */,
 				01D387971D229BFC00CE4E1F /* AppDelegate.swift in Sources */,
@@ -275,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0835344C235C743400EC8FD9 /* EvaluateRgb.swift in Sources */,
 				841C950A1DDEE5A100B997F5 /* UPCarouselFlowLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,7 +426,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VXBN8Z3M62;
 				INFOPLIST_FILE = UPCarouselFlowLayoutDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = UP.UPCarouselFlowLayoutDemo;
@@ -433,7 +441,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = VXBN8Z3M62;
 				INFOPLIST_FILE = UPCarouselFlowLayoutDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = UP.UPCarouselFlowLayoutDemo;
