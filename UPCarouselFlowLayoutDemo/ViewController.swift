@@ -95,6 +95,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CarouselCollectionViewCell.identifier, for: indexPath) as! CarouselCollectionViewCell
         let character = items[(indexPath as NSIndexPath).row]
         cell.image.image = UIImage(named: character.imageName)
+        
         return cell
     }
     
