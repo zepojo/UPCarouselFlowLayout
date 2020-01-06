@@ -18,9 +18,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     fileprivate var currentPage: Int = 0 {
         didSet {
-            let character = self.items[self.currentPage]
-            self.infoLabel.text = character.name.uppercased()
-            self.detailLabel.text = character.movie.uppercased()
+            if items.indices.contains(currentPage) {
+                let character = self.items[self.currentPage]
+                self.infoLabel.text = character.name.uppercased()
+                self.detailLabel.text = character.movie.uppercased()
+            }
         }
     }
     
@@ -108,11 +110,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     // MARK: - UIScrollViewDelegate
     
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let layout = self.collectionView.collectionViewLayout as! UPCarouselFlowLayout
         let pageSide = (layout.scrollDirection == .horizontal) ? self.pageSize.width : self.pageSize.height
         let offset = (layout.scrollDirection == .horizontal) ? scrollView.contentOffset.x : scrollView.contentOffset.y
-        currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
+        let currentPage = Int(floor((offset - pageSide / 2) / pageSide) + 1)
+        self.currentPage = currentPage
     }
 
 }
