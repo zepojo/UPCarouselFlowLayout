@@ -25,6 +25,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     fileprivate var pageSize: CGSize {
+        
+        
+        
         let layout = self.collectionView.collectionViewLayout as! UPCarouselFlowLayout
         var pageSize = layout.itemSize
         if layout.scrollDirection == .horizontal {
