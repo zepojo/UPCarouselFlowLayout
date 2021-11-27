@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.1'
   s.swift_version	= '4.2'
 
-  s.source_files = 'UPCarouselFlowLayout/**/*.{h,swift}'
+  s.source_files = 'Sources/UPCarouselFlowLayout/**/*.{h,swift}'
 
 end
