@@ -29,7 +29,7 @@ open class CarouselFlowLayout: UICollectionViewFlowLayout {
 
     // Open properties
 
-    open var spacingMode = CarouselFlowLayoutSpacingMode.fixed(spacing: DSMargin.margin8)
+    open var spacingMode = CarouselFlowLayoutSpacingMode.fixed(spacing: 8)
 
     // File private properties
 
