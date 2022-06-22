@@ -28,6 +28,21 @@ Users can simply add to their Cartfile:
 github "ink-spot/UPCarouselFlowLayout"
 ```
 
+**Package.swift**
+
+```swift
+let package = Package(
+  name: "MyPackage",
+  dependencies: [
+    .package(url: "https://github.com/DSM-FLOW/UPCarouselFlowLayout.git", .upToNextMajor(from: "1.1.3"))
+  ],
+  targets: [
+    .target(name: "MyTarget", dependencies: ["UPCarouselFlowLayout"])
+  ]
+)
+```
+
+
 ### Manual
 
 Simply copy the folder `UPCarouselFlowLayout` to your project and import it in XCode.
