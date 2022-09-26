@@ -16,7 +16,7 @@ UPCarouselFlowLayout
 `UPCarouselFlowLayout` is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
-```
+```bash
 pod "UPCarouselFlowLayout"
 ```
 
@@ -24,7 +24,7 @@ pod "UPCarouselFlowLayout"
 
 Users can simply add to their Cartfile:
 
-```
+```bash
 github "ink-spot/UPCarouselFlowLayout"
 ```
 
@@ -54,7 +54,7 @@ collectionView.collectionViewLayout = layout
 
 Set the `UICollectionView` layout class to `UPCarouselFlowLayout`, and set its `itemSize` and its properties.
 
-![demo](images/ib_settings.png)
+![demo](https://raw.githubusercontent.com/zepojo/UPCarouselFlowLayout/master/images/demo.gif)
 
 ### Properties
 
